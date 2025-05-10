@@ -5,73 +5,103 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
 .container {
     width: 100%;
     max-width: 1200px;
-    padding: 20px;
 }
 
 .card {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    padding: 30px;
+    padding: 40px;
     margin: auto;
-    max-width: 800px;
+    max-width: 900px;
     transform: translateY(0);
-    transition: transform 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.image-wrapper {
+    position: relative;
+    margin: -40px -40px 30px;
 }
 
 .image-container {
-    width: 100%;
-    margin-bottom: 20px;
-    border-radius: 10px;
+    position: relative;
     overflow: hidden;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
 }
 
 #main-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#main-image:hover {
-    transform: scale(1.03);
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+}
+
+.content-section {
+    position: relative;
+    z-index: 1;
 }
 
 .text-content {
     text-align: center;
+    margin-bottom: 40px;
 }
 
 h1 {
-    color: #333;
-    margin-bottom: 15px;
-    font-size: 2.5em;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    font-size: 2.8em;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
 }
 
 p {
-    color: #666;
-    line-height: 1.6;
-    font-size: 1.1em;
+    color: #4a4a4a;
+    line-height: 1.8;
+    font-size: 1.2em;
+    font-weight: 400;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
     .card {
         padding: 20px;
+        border-radius: 20px;
+    }
+
+    .image-wrapper {
+        margin: -20px -20px 20px;
     }
 
     h1 {
@@ -80,5 +110,13 @@ p {
 
     p {
         font-size: 1em;
+    }
+
+    .qr-container {
+        padding: 25px;
+    }
+
+    .download-btn {
+        padding: 12px 24px;
     }
 }
